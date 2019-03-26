@@ -12,9 +12,8 @@ namespace TrucksterQueueClient {
     public class TrucksterQueueClient : BaseScript {
 
         public TrucksterQueueClient() {
-
+            // Client ticking
             Tick += Connected;
-            
         }
 
         /// <summary>

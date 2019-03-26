@@ -15,7 +15,11 @@ namespace TrucksterQueueServer {
     /// </summary>
     public class TrucksterQueueServer : BaseScript {
 
+        // The truckster's queue
+        private TrucksterQueue queue = new TrucksterQueue();
+
         public TrucksterQueueServer() {
+            // Add some event handlers that we will need
             EventHandlers[QueueEvents.PLAYER_CONNECTED] += new Action<Player>(PlayerActivated);
         }
 

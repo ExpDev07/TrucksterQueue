@@ -11,29 +11,16 @@ namespace TrucksterQueueServer {
     /// </summary>
     public class TrucksterQueue {
 
-        private ISet<QueueEntry> entries = new SortedSet<QueueEntry>(new QueueEntryComparer());
+        /// <summary>
+        /// Entries in queue
+        /// </summary>
+        public ISet<QueueEntry> Entries { get; } = new SortedSet<QueueEntry>(new QueueEntryComparer());
 
         /// <summary>
         /// Creates a new truckster's queue
         /// </summary>
         public TrucksterQueue() {
             
-        }
-
-        /// <summary>
-        /// Adds a new entry to the queue
-        /// </summary>
-        /// <param name="entry">Entry to add</param>
-        public void Add(QueueEntry entry) {
-            entries.Add(entry);
-        }
-
-        /// <summary>
-        /// Removes an entry from the queue
-        /// </summary>
-        /// <param name="entry">Entry to remove</param>
-        public void Remove(QueueEntry entry) {
-            entries.Remove(entry);
         }
 
     }
@@ -44,6 +31,7 @@ namespace TrucksterQueueServer {
     public class QueueEntryComparer : IComparer<QueueEntry> {
 
         public int Compare(QueueEntry x, QueueEntry y) {
+            // Compare the priority of the two entries
             return x.Priority.CompareTo(y.Priority);
         }
 
